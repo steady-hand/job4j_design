@@ -64,7 +64,7 @@ public class SimpleArrayList<T> implements SimpleList<T> {
     public Iterator<T> iterator() {
         return new Iterator<T>() {
             private int point = 0;
-            private int expectedModCount = modCount;
+            private final int expectedModCount = modCount;
 
             @Override
             public boolean hasNext() {
