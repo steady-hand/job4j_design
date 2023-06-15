@@ -15,6 +15,7 @@ public class User {
         this.children = children;
         this.birthday = birthday;
     }
+
     public static void main(String[] args) {
         User user1 = new User("Vlad", 0, Calendar.getInstance());
         User user2 = new User("Vlad", 0, Calendar.getInstance());
@@ -34,7 +35,11 @@ public class User {
     }
 
     @Override
-    public int hashCode() {
-        return Objects.hash(name, children, birthday);
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        User user = (User) o;
+        return children == user.children && Objects.equals(name, user.name) && Objects.equals(birthday, user.birthday);
     }
+
 }
